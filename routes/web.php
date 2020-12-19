@@ -17,6 +17,7 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
+
 $router->group(['middleware' => 'client.credentials'],function () use ($router){
 
 $router->get('/users1', 'User1Controller@index');

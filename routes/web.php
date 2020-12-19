@@ -16,3 +16,18 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->group(['middleware' => 'client.credentials'],function () use ($router){
+
+$router->get('/users1', 'User1Controller@index');
+$router->post('/users1', 'User1Controller@create');
+$router->get('/users1/{id}', 'User1Controller@read');
+$router->put('/users1/{id}', 'User1Controller@update');
+$router->delete('/users1/{id}', 'User1Controller@delete');
+
+$router->get('/users2', 'User2Controller@index');
+$router->post('/users2', 'User2Controller@create');
+$router->get('/users2/{id}', 'User2Controller@read');
+$router->put('/users2/{id}', 'User2Controller@update');
+$router->delete('/users2/{id}', 'User2Controller@delete');
+});
